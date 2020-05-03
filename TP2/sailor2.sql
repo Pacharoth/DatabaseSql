@@ -28,7 +28,7 @@ union
 select sname from Sailors join Reserves on Reserves.sid = Sailors.sid join Boats on Reserves.bid = Boats.bid where Boats.color ='green';
 -- l. Find the names of sailors who have reserved a red and a green boat.
 select s.sname from Sailors s join Reserves r on r.sid=s.sid join Boats b on b.bid =r.bid where color ='red' and 
-b.bid in 
-(select b1.bid from Sailors s1 join Reserves r1 on s1.sid=r1.sid join Boats b1 on b1.bid=r1.bid where color='green');
+s.sid in 
+(select s1.sid from Sailors s1 join Reserves r1 on s1.sid=r1.sid join Boats b1 on b1.bid=r1.bid where color='green');
 -- m. Find pairs of boats that have the same name.
 select b1.bid,b1.bname,b1.color from Boats b1 join Boats b2 on b1.bid !=b2.bid where b1.bname = b2.bname;
