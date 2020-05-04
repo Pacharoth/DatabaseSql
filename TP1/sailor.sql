@@ -7,9 +7,9 @@ create table Sailors(sid int not null,sname varchar(100) not null, rating int no
 -- /*Boats*/
 create table Boats(bid int not null, bname varchar(100) not null, color varchar(100) not null, constraint boats_ID primary key(bid));
 -- Reserves
-create table Reserves(sid int not null,bid int not null,constraint sid_id foreign key(sid) references Sailors(sid),constraint foreign key(bid) references Boats(bid),day datetime);
+create table Reserves(sid int not null,bid int not null,constraint sid_id foreign key(sid) references Sailors(sid),constraint foreign key(bid) references Boats(bid),day date);
 -- 3.Change the attribute age in Sailors into decimal;
-alter table Sailors modify age decimal not null;
+alter table Sailors modify age decimal(3,1) not null;
 -- 4.add check constraint rating which rating from 0-10;
 alter table Sailors modify rating int not null check( rating >=0 and rating <=10);
 alter table Sailors add constraint check_rating check(rating>=0 and rating <=10);
