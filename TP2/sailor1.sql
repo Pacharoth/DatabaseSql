@@ -42,7 +42,9 @@ SELECT * from Reserves where year(day)='1998' and month(day)='10';
 -- h. find the names of sailors who have reserved boat 103
 SELECT sname from Sailors,Reserves where bid = 103 and Sailors.sid=Reserves.sid;
 -- i. find the names of sailors who reserved red boats.
-select sname from Reserves,Sailors,Boats where Reserves.sid=Sailors.sid and Reserves.bid = Boats.bid and Boats.color='red' union select sname from Reserves,Sailors,Boats where Reserves.sid=Sailors.sid and Reserves.bid = Boats.bid and Boats.color='red';
+select sname from Reserves,Sailors,Boats where Reserves.sid=Sailors.sid and Reserves.bid = Boats.bid and Boats.color='red' 
+union 
+select sname from Reserves,Sailors,Boats where Reserves.sid=Sailors.sid and Reserves.bid = Boats.bid and Boats.color='red';
 -- k.find the names of sailors who reserved red or green boats.
 select sname from Sailors join Reserves on Reserves.sid = Sailors.sid join Boats on Reserves.bid = Boats.bid where Boats.color ='red' 
 union 
