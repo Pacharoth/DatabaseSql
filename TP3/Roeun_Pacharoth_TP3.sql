@@ -42,7 +42,7 @@ where
 o.order_ID = 106;
 
 -- 9.Show the information of customer who has made order number 106
-select c.* from customer_t c
+select distinct c.* from customer_t c
 inner join order_t od on
 od.customer_ID=c.ID
 join order_line_t o on
@@ -57,7 +57,7 @@ inner join product_t p on
 o.product_ID=p.ID
 where p.description = 'book shelf';
 -- 11. show the order which contains table lamp
-select distinct od.* from order_t od
+select od.* from order_t od
 join order_line_t o on 
 o.order_ID = od.ID
 inner join product_t p on
