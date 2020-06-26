@@ -10,10 +10,12 @@ od.customer_ID = c.ID;		/* To show the name id of customer with order id
 -- 2. Show id and description of product and its quantity in each order.
 select distinct p.ID,p.description ,o.quantity from product_t p
 inner join order_line_t o on
-o.product_ID = p.ID where
+o.product_ID = p.ID
+join order_t as od on 
+o.order_ID=od.ID where
 o.quantity in (
 select o1.quantity from order_line_t o1);	/* To show id description and quantity there are many way
-											   1.Look table and join product and orderline 
+											   1.Look table and join product and orderline and order_t
                                                by join with their id
                                                2.Check quantity in other subquery or we can check where exists
                                                and use coleration subquery . They have same result*/
