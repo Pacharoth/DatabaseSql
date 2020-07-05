@@ -1,4 +1,4 @@
-use producttest;
+															use producttest;
 -- Write SQL statement for the following questions
 -- 1. Find all products ordered by “John Doe”
 select p.* from product_t as p
